@@ -10,6 +10,48 @@ namespace Actividad3
     {
         static void Main(string[] args)
         {
+            Ejecutar();            
+        }
+
+        private static void Ejecutar()
+        {
+            
+             Console.WriteLine("Ingrese la opcion deseada:\n" +
+                    "C)Consultar\n" +
+                    "A)Actualizar\n" +
+                    "S)Salir");
+            while (true)
+            {
+                var tecla = Console.ReadKey();
+                if (tecla.Key == ConsoleKey.C)
+                {
+                    Consultar();
+                }
+                else if (tecla.Key == ConsoleKey.A)
+                {
+                    Actualizar();
+                }
+                else if (tecla.Key == ConsoleKey.S)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Debe ingresar un valor valido");
+                }
+
+            }                   
+            
+        }
+
+        private static void Actualizar()
+        {
+            Console.WriteLine("\nGenerando Actualizacion..");
+        }
+
+        private static void Consultar()
+        {
+            LibroDiario.Leer();
         }
     }
 }
