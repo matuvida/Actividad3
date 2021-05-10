@@ -52,7 +52,7 @@ namespace Actividad3
             {
                 Console.WriteLine(
                     cuenta.Codigo + " - "
-                    + DateTime.Now.ToString("dd/MM/yyyy") + " - "
+                    + DateTime.Now.ToString("yyyy/mm/dd") + " - "
                     + cuenta.calcularDebe() + " - "
                     + cuenta.calcularHaber()
                 );
@@ -66,7 +66,7 @@ namespace Actividad3
         {
             return lineas.Sum(linea =>
             {
-                return (linea.TipoMov == TipoMovimiento.Debe) ? linea.Monto : 0;
+                return (linea.TipoMov == "Debe") ? linea.Monto : 0;
             });
         }
 
@@ -74,7 +74,7 @@ namespace Actividad3
         {
             return lineas.Sum(linea =>
             {
-                return linea.TipoMov == TipoMovimiento.Haber ? linea.Monto : 0;
+                return linea.TipoMov == "Haber" ? linea.Monto : 0;
             });
         }
 
@@ -85,21 +85,15 @@ namespace Actividad3
         }
         internal static void Leer()
         {
-                       
-                string[] lines = File.ReadAllLines("LIBRO.txt");
-                Console.WriteLine("Detalle de nuestro Libro Mayor actualizado.");
+                string archivo = "LIBRO.txt";
+                string[] lines = File.ReadAllLines(archivo);
+                Console.WriteLine("\nDetalle de nuestro Libro Diario Actualizado.");
                 foreach (string line in lines)
                 {
                     string[] datos = line.Split('|');
-                    Console.WriteLine("NroAsiento: " + datos[0]);
-                    Console.WriteLine("Fecha: " + datos[1]);
-                    Console.WriteLine("Codigo: " + datos[2]);
-                    Console.WriteLine("Debe: " + datos[3]);
-                    Console.WriteLine("Haber: " + datos[4]);
-                    Console.WriteLine("------------------------ ");
-
+                    Console.WriteLine("NroAsiento:" + datos[0] + "|Fecha:" + datos[1] + "|Codigo:" + datos[2] +"|Debe:" + datos[3] +"|Haber:" + datos[4]);
                 }
-                Console.WriteLine("\t");
+
                 Console.WriteLine("Presione una tecla para salir");
                 Console.ReadLine();
             

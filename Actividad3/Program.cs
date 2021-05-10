@@ -26,10 +26,13 @@ namespace Actividad3
                 if (tecla.Key == ConsoleKey.C)
                 {
                     Consultar();
+                    continue;
+
                 }
                 else if (tecla.Key == ConsoleKey.A)
                 {
                     Actualizar();
+                    continue;
                 }
                 else if (tecla.Key == ConsoleKey.S)
                 {
@@ -38,6 +41,7 @@ namespace Actividad3
                 else
                 {
                     Console.WriteLine("Debe ingresar un valor valido");
+                    continue;
                 }
 
             }                   
@@ -51,6 +55,7 @@ namespace Actividad3
 
         private static void Consultar()
         {
+            
             LibroDiario.Leer();
         }
     }
